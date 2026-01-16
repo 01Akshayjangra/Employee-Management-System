@@ -5,26 +5,26 @@ const NewTask = ({ item }) => {
 
     const { fetchLoggedInUser } = useContext(AuthContext);
 
-    const handleAcceptTask = () => {
-        const data = JSON.parse(localStorage.getItem('employees'));
-        const user = JSON.parse(localStorage.getItem('loggedInUser'));
+    // const handleAcceptTask = () => {
+    //     const data = JSON.parse(localStorage.getItem('employees'));
+    //     const user = JSON.parse(localStorage.getItem('loggedInUser'));
 
-        data.forEach(function (emp) {
-            if (emp.email == user.email) {
-                emp.taskCounts["newTask"]--;
-                emp.taskCounts["acive"]++;
-                emp.tasks.push({
-                    active: true,
-                    newTask: false,
-                    failed: false,
-                    completed: false,
-                })
-            }
-        })
+    //     data.forEach(function (emp) {
+    //         if (emp.email == user.email) {
+    //             emp.taskCounts["newTask"]--;
+    //             emp.taskCounts["acive"]++;
+    //             emp.tasks.push({
+    //                 active: true,
+    //                 newTask: false,
+    //                 failed: false,
+    //                 completed: false,
+    //             })
+    //         }
+    //     })
 
-        localStorage.setItem('employees', JSON.stringify(data))
-        fetchLoggedInUser();
-    }
+    //     localStorage.setItem('employees', JSON.stringify(data))
+    //     fetchLoggedInUser();
+    // }
     return (
         <div className='h-full rounded-2xl border border-sky-900/60 bg-sky-950/40 p-5 text-sky-50 shadow-sm'>
             <div className='flex items-center justify-between text-xs'>
@@ -35,7 +35,7 @@ const NewTask = ({ item }) => {
             <p className='mt-2 text-xs leading-relaxed text-sky-100/80'>{item.taskDescription}</p>
             <div className='mt-5 flex gap-3'>
                 <button
-                    onClick={handleAcceptTask}
+                    // onClick={handleAcceptTask}
                     className='rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition hover:bg-emerald-500'>
                     Accept Task
                 </button>
